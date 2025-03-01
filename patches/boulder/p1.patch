@@ -1,0 +1,30 @@
+diff --git a/Makefile b/Makefile
+index 9522b89a7..42b9caf91 100644
+--- a/Makefile
++++ b/Makefile
+@@ -36,7 +36,7 @@ $(CMD_BINS): build_cmds
+ 
+ build_cmds: | $(OBJDIR)
+ 	echo $(OBJECTS)
+-	GOBIN=$(OBJDIR) GO111MODULE=on go install -mod=vendor $(GO_BUILD_FLAGS) ./...
++	GOBIN=$(GOBIN) GO111MODULE=on go install -mod=vendor $(GO_BUILD_FLAGS) ./...
+ 
+ # Building a .deb requires `fpm` from https://github.com/jordansissel/fpm
+ # which you can install with `gem install fpm`.
+diff --git a/cmd/ceremony/cert.go b/cmd/ceremony/cert.go
+index 7f3893593..f32abfeba 100644
+--- a/cmd/ceremony/cert.go
++++ b/cmd/ceremony/cert.go
+@@ -69,6 +69,12 @@ var AllowedSigAlgs = map[string]x509.SignatureAlgorithm{
+ 	"ECDSAWithSHA256": x509.ECDSAWithSHA256,
+ 	"ECDSAWithSHA384": x509.ECDSAWithSHA384,
+ 	"ECDSAWithSHA512": x509.ECDSAWithSHA512,
++	"SHA3_256WithRSA":   x509.SHA3_256WithRSA,
++	"SHA3_384WithRSA":   x509.SHA3_384WithRSA,
++	"SHA3_512WithRSA":   x509.SHA3_512WithRSA,
++	"ECDSAWithSHA3_256": x509.ECDSAWithSHA3_256,
++	"ECDSAWithSHA3_384": x509.ECDSAWithSHA3_384,
++	"ECDSAWithSHA3_512": x509.ECDSAWithSHA3_512,
+ }
+ 
+ type certType int

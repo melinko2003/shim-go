@@ -1,0 +1,33 @@
+---
+ceremony-type: root
+pkcs11:
+    module: /usr/lib/softhsm/libsofthsm2.so
+    store-key-in-slot: 0x3167f105
+    pin: 1234
+    store-key-with-label: exmple_rootca_e1
+key:
+    type: ecdsa
+    ecdsa-curve: P-384
+outputs:
+    public-key-path: bldr_exmple_root_e1.key.pem
+    certificate-path: bldr_exmple_root_e1.crt.pem
+certificate-profile:
+    signature-algorithm: ECDSAWithSHA3_384
+    common-name: CA intermediate
+    organization: good guys
+    country: US
+    not-before: 2020-01-01 12:00:00
+    not-after: 2040-01-01 12:00:00
+    key-usages:
+        - Cert Sign
+        - CRL Sign
+skip-lints:
+- e_sub_ca_aia_missing
+- w_sub_ca_aia_does_not_contain_issuing_ca_url
+- n_sub_ca_eku_missing
+- e_sub_ca_certificate_policies_missing
+- n_ca_digital_signature_not_set 
+- n_mp_allowed_eku 
+- e_signature_algorithm_not_supported 
+- e_ext_authority_key_identifier_no_key_identifier
+- e_sub_ca_crl_distribution_points_missing

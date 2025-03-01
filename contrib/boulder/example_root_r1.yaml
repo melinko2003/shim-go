@@ -1,0 +1,33 @@
+---
+ceremony-type: root
+pkcs11:
+    module: /usr/lib/softhsm/libsofthsm2.so
+    store-key-in-slot: 0x708a2a9
+    pin: 1234
+    store-key-with-label: exmple_root_r1
+key:
+    type: rsa
+    rsa-mod-length: 4096
+outputs:
+    public-key-path: bldr_exmple_root_r1.key.pem
+    certificate-path: bldr_exmple_root_r1.crt.pem
+certificate-profile:
+    signature-algorithm: SHA3_256WithRSA
+    common-name: CA intermediate
+    organization: good guys
+    country: US
+    not-before: 2020-01-01 12:00:00
+    not-after: 2040-01-01 12:00:00
+    key-usages:
+        - Cert Sign
+        - CRL Sign
+skip-lints:
+- e_sub_ca_aia_missing
+- w_sub_ca_aia_does_not_contain_issuing_ca_url
+- n_sub_ca_eku_missing
+- e_sub_ca_certificate_policies_missing
+- n_ca_digital_signature_not_set 
+- n_mp_allowed_eku 
+- e_signature_algorithm_not_supported 
+- e_ext_authority_key_identifier_no_key_identifier
+- e_sub_ca_crl_distribution_points_missing

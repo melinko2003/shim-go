@@ -23,3 +23,10 @@ go.work.sum
 
 # env file
 .env
+
+# Shim Related Exclusions
+shim/*
+!shim/README.md
+src/*
+!src/README.md
+*.pem
