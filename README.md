@@ -17,6 +17,12 @@ Patch in when ever/what ever.
     @melinko2003 ➜ .../shim-go/src/go/src (master) $ cd ..
     @melinko2003 ➜ /workspaces/shim-go/src/go (master) $ cp -a bin pkg src misc lib ../../shim/go-shim-$(git rev-parse --short HEAD)/
     ```
+3) Backup Go-shim
+    ```bash
+    @melinko2003 ➜ /workspaces/shim-go/src/go (master) $ cd ../../shim
+    @melinko2003 ➜ /workspaces/shim-go/shim (main) $ tar czf go-only-shim-0a0e6af39b.tar.gz go-shim-0a0e6af39b
+    @melinko2003 ➜ /workspaces/shim-go/shim (main) $ tar tf go-only-shim-0a0e6af39b.tar.gz 
+    ```
 ## Verify version
 ```bash
 @melinko2003 ➜ /workspaces/shim-go/src/go (master) $ cd ../../

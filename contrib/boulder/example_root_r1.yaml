@@ -2,7 +2,7 @@
 ceremony-type: root
 pkcs11:
     module: /usr/lib/softhsm/libsofthsm2.so
-    store-key-in-slot: 0x708a2a9
+    store-key-in-slot: 0x7f3f1524
     pin: 1234
     store-key-with-label: exmple_root_r1
 key:
