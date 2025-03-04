@@ -14,7 +14,7 @@ Updating files: 100% (14189/14189), done.
 ```
 Update to a modern `Go`: https://go.dev/wiki/Ubuntu
 ```bash
-@melinko2003 ➜ /workspaces/shim-go (main) $ sudo add-apt-repository ppa:longsleep/golang-backports
+@melinko2003 ➜ /workspaces/shim-go (main) $ sudo add-apt-repository ppa:longsleep/golang-backports -y
  Golang 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19, 1.20, 1.21, 1.22 and 1.23 PPA for Ubuntu
 
 See https://github.com/longsleep/golang-deb for the sources for the packages in this PPA and for reporting issues / change requests.
