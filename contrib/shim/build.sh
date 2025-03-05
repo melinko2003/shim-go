@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 
 # golang repo Install
-#sudo add-apt-repository ppa:longsleep/golang-backports -y
-#sudo sudo apt install golang-go -y
+sudo add-apt-repository ppa:longsleep/golang-backports -y
+sudo sudo apt install golang-go -y
 
 # Pathing
 CONTRIB=$PWD$(dirname $(dirname $0) | cut -d"." -f2 )
@@ -49,12 +49,12 @@ mkdir $OURSHIM
 cd $GO_BUILD_ROOT
 # This Part effectively builds the shim
 cp -a bin pkg src misc lib $OURSHIM/
-# adding a Psuedo Activate script to handle the exporting. 
-# cp $CONTRIB/shim/activate $OURSHIM/bin/
-echo """export PS1="($GIT_COMMIT) $PS1"""" > $OURSHIM/bin/activate
-echo "export GOROOT=$OURSHIM" >> $OURSHIM/bin/activate
-echo "export GOBIN=$OURSHIM/bin" >> $OURSHIM/bin/activate
-echo """export PATH="$OURSHIM/bin:$PATH"""" >> $OURSHIM/bin/activate
+# adding a Psuedo Activate script to handle the exporting.
+cp $CONTRIB/shim/golang-activate "$OURSHIM/bin/activate"
+sed -i "s,GO_VENV_P2,$GIT_COMMIT,g" "$OURSHIM/bin/activate"
+chmod +x "$OURSHIM/bin/activate"
+
+echo "Creating: $GIT_COMMIT @ $OURSHIM "
 
 # Backups
 cd $SHIM
